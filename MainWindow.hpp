@@ -54,7 +54,7 @@ public:
                      QWidget* parent = nullptr)
         : QWidget(parent), mFraction(fraction), mColor(fillColor)
     {
-        setFixedHeight(16);
+        setFixedHeight(20);
         setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     }
 
@@ -98,7 +98,7 @@ public:
     explicit TermLine(QWidget* parent = nullptr) : QLabel(parent) {
         setStyleSheet(styleLabel(T::DIMGREEN));
         setText(QString(80, '-'));
-        setFixedHeight(16);
+        setFixedHeight(20);
     }
 };
 
@@ -114,8 +114,8 @@ public:
         : QWidget(parent)
     {
         mLayout = new QVBoxLayout(this);
-        mLayout->setContentsMargins(0, 0, 0, 0);
-        mLayout->setSpacing(0);
+        mLayout->setContentsMargins(0, 6, 0, 6);
+        mLayout->setSpacing(4);
 
         auto* t = new QLabel(title);
         t->setStyleSheet(styleLabel(T::YELLOW));
@@ -148,7 +148,7 @@ public:
 
         auto* row = new QWidget;
         auto* lay = new QHBoxLayout(row);
-        lay->setContentsMargins(2, 0, 0, 0);
+        lay->setContentsMargins(2, 4, 0, 4);
         lay->setSpacing(0);
 
         // Label column
@@ -178,7 +178,7 @@ public:
     {
         auto* row = new QWidget;
         auto* lay = new QHBoxLayout(row);
-        lay->setContentsMargins(2, 0, 0, 0);
+        lay->setContentsMargins(2, 4, 0, 4);
         lay->setSpacing(0);
 
         auto* lbl = new QLabel("  " + col(label, 36));
@@ -310,7 +310,7 @@ private:
         mContent->setStyleSheet(QString("background:%1;").arg(T::BG));
         mContentLay = new QVBoxLayout(mContent);
         mContentLay->setContentsMargins(8, 8, 8, 8);
-        mContentLay->setSpacing(0);
+        mContentLay->setSpacing(6);
         scroll->setWidget(mContent);
         root->addWidget(scroll);
 
